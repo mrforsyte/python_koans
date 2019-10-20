@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 from runner.koan import *
 
 class AboutAsserts(Koan):
@@ -9,11 +8,9 @@ class AboutAsserts(Koan):
         """
         We shall contemplate truth by testing reality, via asserts.
         """
-
         # Confused? This video should help:
         #
         #   http://bit.ly/about_asserts
-
         self.assertTrue(True) # This should be True
 
     def test_assert_with_message(self):
@@ -42,22 +39,19 @@ class AboutAsserts(Koan):
         """
         expected_value = 2
         actual_value = 1 + 1
-
         self.assertEqual(expected_value, actual_value)
 
     def test_that_unittest_asserts_work_the_same_way_as_python_asserts(self):
         """
         Understand what lies within.
         """
-
         # This throws an AssertionError exception
-        assert False
+        assert True
 
     def test_that_sometimes_we_need_to_know_the_class_type(self):
         """
         What is in a class name?
         """
-
         # Sometimes we will ask you what the class type of an object is.
         #
         # For example, contemplate the text string "navel". What is its class type?
