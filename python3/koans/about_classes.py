@@ -3,7 +3,6 @@
 
 from runner.koan import *
 
-
 class AboutClasses(Koan):
     class Dog:
         "Dogs need regular walkies. Never, ever let them drive."

@@ -11,20 +11,20 @@ class AboutLists(Koan):
     def test_creating_lists(self):
         empty_list = list()
         self.assertEqual(list, type(empty_list))
-        self.assertEqual(__, len(empty_list))
+        self.assertEqual(0, len(empty_list))
 
     def test_list_literals(self):
         nums = list()
         self.assertEqual([], nums)
 
         nums[0:] = [1]
-        self.assertEqual([1], nums)
+        self.assertEqual(1, nums)
 
         nums[1:] = [2]
-        self.assertListEqual([1, __], nums)
+        self.assertListEqual([1, 2], nums)
 
         nums.append(333)
-        self.assertListEqual([1, 2, __], nums)
+        self.assertListEqual([1, 2, 333], nums)
 
     def test_accessing_list_elements(self):
         noms = ['peanut', 'butter', 'and', 'jelly']
