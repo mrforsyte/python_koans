@@ -33,7 +33,7 @@ class AboutMethods(Koan):
             msg = e.args[0]
 
         # Note, watch out for parenthesis. They need slashes in front!
-        self.assertRegex(msg, __)
+        self.assertRegex(msg, TypeError)
 
     # ------------------------------------------------------------------
 
@@ -41,7 +41,7 @@ class AboutMethods(Koan):
         sum = a + b
 
     def test_which_does_not_return_anything(self):
-        self.assertEqual(__, self.pointless_method(1, 2))
+        self.assertEqual(3, self.pointless_method(1, 2))
         # Notice that methods accessed from class scope do not require
         # you to pass the first "self" argument?
 
@@ -51,8 +51,8 @@ class AboutMethods(Koan):
         return [a, b]
 
     def test_calling_with_default_values(self):
-        self.assertEqual(__, self.method_with_defaults(1))
-        self.assertEqual(__, self.method_with_defaults(1, 2))
+        self.assertEqual([1,1], self.method_with_defaults(1))
+        self.assertEqual([1,2], self.method_with_defaults(1, 2))
 
     # ------------------------------------------------------------------
 
@@ -60,9 +60,9 @@ class AboutMethods(Koan):
         return args
 
     def test_calling_with_variable_arguments(self):
-        self.assertEqual(__, self.method_with_var_args())
+        self.assertEqual((), self.method_with_var_args())
         self.assertEqual(('one',), self.method_with_var_args('one'))
-        self.assertEqual(__, self.method_with_var_args('one', 'two'))
+        self.assertEqual(('one','two'), self.method_with_var_args('one', 'two'))
 
     # ------------------------------------------------------------------
 
@@ -73,7 +73,7 @@ class AboutMethods(Koan):
         def function_with_the_same_name(a, b):
             return a * b
 
-        self.assertEqual(__, function_with_the_same_name(3,4))
+        self.assertEqual(7, function_with_the_same_name(3,4))
 
     def test_calling_methods_in_same_class_with_explicit_receiver(self):
         def function_with_the_same_name(a, b):
