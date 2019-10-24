@@ -33,7 +33,7 @@ class AboutMethods(Koan):
             msg = e.args[0]
 
         # Note, watch out for parenthesis. They need slashes in front!
-        self.assertRegex(msg, TypeError)
+        self.assertRegex(msg, r'my_global_function\(\) takes 2 positional arguments but 3 were given')
 
     # ------------------------------------------------------------------
 
@@ -41,7 +41,7 @@ class AboutMethods(Koan):
         sum = a + b
 
     def test_which_does_not_return_anything(self):
-        self.assertEqual(3, self.pointless_method(1, 2))
+        self.assertEqual(None, self.pointless_method(1, 2))
         # Notice that methods accessed from class scope do not require
         # you to pass the first "self" argument?
 
@@ -51,7 +51,7 @@ class AboutMethods(Koan):
         return [a, b]
 
     def test_calling_with_default_values(self):
-        self.assertEqual([1,1], self.method_with_defaults(1))
+        self.assertEqual([1,'default_value'], self.method_with_defaults(1))
         self.assertEqual([1,2], self.method_with_defaults(1, 2))
 
     # ------------------------------------------------------------------
@@ -73,13 +73,13 @@ class AboutMethods(Koan):
         def function_with_the_same_name(a, b):
             return a * b
 
-        self.assertEqual(7, function_with_the_same_name(3,4))
+        self.assertEqual(12, function_with_the_same_name(3,4))
 
     def test_calling_methods_in_same_class_with_explicit_receiver(self):
         def function_with_the_same_name(a, b):
             return a * b
 
-        self.assertEqual(__, self.function_with_the_same_name(3,4))
+        self.assertEqual(7, self.function_with_the_same_name(3,4))
 
     # ------------------------------------------------------------------
 
