@@ -18,6 +18,13 @@
 #
 def triangle(a, b, c):
     # DELETE 'PASS' AND WRITE THIS CODE
+    if a<= 0 or b<= 0 or c<= 0:
+    	raise TriangleError(AttributeError('Negative side is not allowed'))
+    if a+b < c or a+c<b or b+c < a:
+    	raise TriangleError(AttributeError('sum of any two sides should be bigger than a 3rd one'))
+    	
+
+
     if a == b and a == c:
     	return 'equilateral'
     if a == b or b == c or a == c:
