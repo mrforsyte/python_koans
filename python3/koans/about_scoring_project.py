@@ -34,6 +34,7 @@ from runner.koan import *
 
 def score(dice):
     score = 0
+
     if dice.count(1) == 3:
         score+=1000
     if dice.count(1) == 1:
@@ -46,8 +47,18 @@ def score(dice):
         score += 4*100
     if dice.count(5) == 3:
         score += 5*100
+    if dice.count(6) == 3:
+        score += 6*100
     if dice.count(5) == 1:
         score += 50
+    if dice.count(1) == 2:
+        score+=200
+    if dice.count(5) == 2:
+        score += 100
+    if dice.count(5) == 4:
+        score += 550
+    if dice.count(1) == 4:
+        score+=1100
 
     return score
 
