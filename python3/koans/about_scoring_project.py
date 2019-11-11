@@ -2,7 +2,11 @@
 # -*- coding: utf-8 -*-
 
 from runner.koan import *
+<<<<<<< HEAD
 #commit
+=======
+#comment
+>>>>>>> c110796ffbeb16d12ad49df58c2420cfdc8801a1
 # Greed is a dice game where you roll up to five dice to accumulate
 # points.  The following "score" function will be used calculate the
 # score of a single roll of the dice.
