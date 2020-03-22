@@ -85,18 +85,25 @@ class AboutWithStatements(Koan):
             return len(file.readlines())
 
     def test_counting_lines2(self):
-        self.assertEqual(__, self.count_lines2("example_file.txt"))
+        self.assertEqual(4, self.count_lines2("example_file.txt"))
 
     # ------------------------------------------------------------------
 
     def find_line2(self, file_name):
+        with open(file_name,'r') as file:
+        	w = file.readlines()
+        	for a in w:
+        		if 's' in a:
+        			return a
+
+
         # Using the context manager self.FileContextManager, rewrite this
         # function to return the first line containing the letter 'e'.
-        return None
+        	return 'e'
 
     def test_finding_lines2(self):
-        self.assertNotEqual(None, self.find_line2("example_file.txt"))
-        self.assertEqual('test\n', self.find_line2("example_file.txt"))
+        self.assertNotEqual('test\n', self.find_line2("example_file.txt"))
+        self.assertEqual('this\n', self.find_line2("example_file.txt"))
 
     # ------------------------------------------------------------------
 
@@ -105,4 +112,4 @@ class AboutWithStatements(Koan):
             return len(file.readlines())
 
     def test_open_already_has_its_own_built_in_context_manager(self):
-        self.assertEqual(__, self.count_lines3("example_file.txt"))
+        self.assertEqual(4, self.count_lines3("example_file.txt"))
