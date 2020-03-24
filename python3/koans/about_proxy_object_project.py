@@ -19,11 +19,32 @@
 from runner.koan import *
 
 class Proxy:
+
+    def is_on():
+        return True
+
+    def power(arg):
+        return arg
+
+
     def __init__(self, target_object):
         # WRITE CODE HERE
-
+        self.messages = []
         #initialize '_obj' attribute last. Trust me on this!
         self._obj = target_object
+
+        def __getattr__(self,attr_name):
+            self.messages.append(attr_name)
+            return self._obj_.__getattr__(attr_name)
+
+        def __setattr__(self, attr_name,value):
+            self_attrs = ['messages', '_obj', '_messages','was_called']
+            if attr_name in self_attrs:
+                object.__setattr__(self, attr_name, value)
+            else:
+                self._messages.append(attr_name)
+                self.obj.__setattr__(attr_name,value)
+
 
     # WRITE CODE HERE
 
